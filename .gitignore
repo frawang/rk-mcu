@@ -1,0 +1,14 @@
+
+*.out
+*.o
+*.d
+*.lst
+*.map
+*.dep
+*.uvgui.*
+*.uvopt
+*.cogui
+*.comarker
+*.comemgui
+*.config
+build/RK3399M0/
