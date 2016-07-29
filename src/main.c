@@ -15,7 +15,7 @@
 void mdelay(unsigned int nms)
 {
 	unsigned int tmp;
-	unsigned int reload = 1 * 100 * 1000; /* 1ms */
+	unsigned int reload = 1 * (CPU_FREQ) * 1000; /* 1ms */
 
 	while (nms--) {
 		NVIC_ST_RELOAD = reload;
