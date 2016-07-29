@@ -32,6 +32,22 @@ void mdelay(unsigned int nms)
 	NVIC_ST_CTRL = 0x00;
 }
 
+void system_reset(void)
+{
+	unsigned int val = readl(PMU_BASE + 0x0024);
+
+	/* set pmic sleep iomux */
+	writel(0x0c000a00, (PMU_GRF_BASE + 0x0010));
+	mdelay(2000);
+
+	val |= 1 << 7; /* set bit7=1 */
+	writel(val, (PMU_BASE + 0x0024));
+	mdelay(2000);
+
+	/* system reset */
+	writel(GLB_SRST_FST_CFG_VAL, (CRU_BASE + CRU_GLB_SRST_FST));
+}
+
 int main(void)
 {
 	while (1) ;

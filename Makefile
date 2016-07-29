@@ -73,7 +73,7 @@ CFLAGS			+= -mcpu=$(ARCH) -mthumb -Wall -ffunction-sections -O3
 
 LDFLAGS			+= -mcpu=$(ARCH) -mthumb -g -nostartfiles -O3
 LDFLAGS			+= -Wl,--gc-sections
-LOCAL_CFLAGS            += -DCPU_FREQ=150
+LOCAL_CFLAGS            += -DCPU_FREQ=24
 
 CC			:= ${CROSS_COMPILE}gcc
 CPP			:= ${CROSS_COMPILE}cpp

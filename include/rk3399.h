@@ -9,6 +9,7 @@
 #define MCU_BASE			0x40000000
 
 #define UART_DBG_BASE			(MCU_BASE + 0x071a0000)
+#define PMU_BASE			(MCU_BASE + 0x07310000)
 #define PMU_GRF_BASE			(MCU_BASE + 0x07320000)
 
 #define CRU_BASE			(MCU_BASE + 0x07760000)
@@ -21,9 +22,5 @@
 #define readl(c)	({unsigned int __v = (*(unsigned int *) (c)); __v;})
 #define writel(v, c)	((*(unsigned int *) (c)) = (v))
 
-static inline void system_reset(void)
-{
-	writel(GLB_SRST_FST_CFG_VAL, (CRU_BASE + CRU_GLB_SRST_FST));
-}
-
+void system_reset(void);
 int main(void);
