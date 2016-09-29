@@ -8,10 +8,6 @@
 
 #include "rk3399.h"
 
-#define NVIC_ST_CTRL	(*((volatile unsigned int *)0xE000E010))
-#define NVIC_ST_RELOAD	(*((volatile unsigned int *)0xE000E014))
-#define NVIC_ST_CURRENT	(*((volatile unsigned int *)0xE000E018))
-
 void mdelay(unsigned int nms)
 {
 	unsigned int tmp;
